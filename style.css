@@ -245,7 +245,7 @@
 } */
 
 #project-1{
-    background-image: url(https://149842033.v2.pressablecdn.com/wp-content/uploads/2019/08/autoclub-car-dealer-website-template.jpg);
+    background-image: url("./assets/images/finwell.png" );
     background-size: cover;
     background-repeat: no-repeat;
     
@@ -286,24 +286,24 @@
     left: 10%;
 }
 .project-content-right{
-    right: 10%;
+    right: -10%;
 }
 
 #project-2{
-    background-image: url(https://themewagon.com/wp-content/uploads/2020/02/solmusic-1.jpg );
+    background-image: url("./assets/images/AEC.png" );
     background-size: cover;
     background-repeat: no-repeat;
     margin-left:120px ;
     
 }
 #project-3{
-    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsMIhQ5vSJI0b5C2WlqTePGWrPTRwIWvAxyinDob-RkLEnCTKAJr_0YEDoNzwFZqlvQ3c&usqp=CAU );
+    background-image: url("./assets/images/pub&go.png" );
     background-size: cover;
     background-repeat: no-repeat;
     
 }
 #project-4{
-    background-image: url(https://www.radiustheme.com/wp-content/uploads/2020/08/Modern.jpg );
+    background-image: url("./assets/images/flash-chat.png" );
     background-size: cover;
     background-repeat: no-repeat;
     margin-left:120px ;
@@ -439,7 +439,7 @@
 .skill-faded-text{
     position: absolute;
     bottom: -34.5%;
-    right: -9%;
+    right: -5%;
     font-weight: bold;
     font-size: 15em;
     color: rgb(231,231,231);
