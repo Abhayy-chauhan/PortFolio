@@ -566,6 +566,7 @@
 }
 .send-button:hover{
     transform: scale(0.9);
+    color: black;
 }
 .send-button:hover button{
     color: black;
