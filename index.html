@@ -1,731 +1,288 @@
-@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;500;800&display=swap");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="wrapper">
+        <div class="container">
+            <div class="nav">
+                <div class="logo">
+                    <img src="data:image/png;base64,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" class="logoImage">
+                    <p>bhay Chauhan</p>
+                </div>
+                <div class="nav-items">
+                    <a href="#Projects">Projects</a>
+                    <a href="#Skills">Skills</a>
+                    <a href="#Contact-me">Contact me</a>
+                </div>
+            </div>
+            <div class="hero-section">
+                <div class="faded-text">Abhay Chauhan</div>
+                <div class="hero-section-left">
+                    <div class="intro-section">
+                        Hi! Abhay Chauhan
+                    </div>
+                    <div class="heading-section">
+                        I am a <span class="role"></span>
+                    </div>
+                    <div class="discription">
+                        I’m a software developer and here is my portfolio website. Here you’ll learn about my journey as a software developer.
+                    </div>
+                    <div class="button">
+                        <p>Hire me</p>
+    
+                    </div>
+                </div>
+                <div class="hero-section-right">
+                    <img src="WhatsApp Image 2023-07-21 at 14.12.22.jpg" class="profile-img">
+    
+    
+                </div>
+            </div>
+        </div>
+        <div id="Projects" class="project-section">
+            <h2 class="page-header">Projects</h2>
+            <div class="project-container">
+                <div class="project-card" id="project-1">
+                    <div class="project-number project-number-right">01</div>
+                    <div class="project-content project-content-left">
+                        <div class="project-skills">
+                            <img src="https://codehelp-portfolio-website.netlify.app/images/stack/HTML.png" class="skills-icons">
+                            <img src="https://codehelp-portfolio-website.netlify.app/images/stack/CSS.png" class="skills-icons">
+                            <img src="https://codehelp-portfolio-website.netlify.app/images/stack/Javascript.svg" class="skills-icons">
+                            <img src="https://codehelp-portfolio-website.netlify.app/images/stack/Express.png" class="skills-icons">
+                            <img src="https://codehelp-portfolio-website.netlify.app/images/stack/NextJsCircle.png" class="skills-icons">
+                            <img src="https://codehelp-portfolio-website.netlify.app/images/stack/Tailwind.png" class="skills-icons">
+                            <img src="https://codehelp-portfolio-website.netlify.app/images/stack/NodeJs.svg" class="skills-icons">
+                            <img src="https://codehelp-portfolio-website.netlify.app/images/stack/MongoDB.svg" class="skills-icons">
+                            <img src="https://codehelp-portfolio-website.netlify.app/images/stack/Redux.svg" class="skills-icons">
+                            <img src="https://codehelp-portfolio-website.netlify.app/images/stack/Vercel.svg" class="skills-icons">
+                        
+                        
+                        
+                        
+                        </div>
+                        <h2 class="project-heading">FinWell</h2>
+                        <div class="project-subheading">Its is a comprehensive financial management platform designed for both individual 
+investors and small to medium-sized enterprises (SMEs). </div>
+                        <div class="button-group">
+                            <button class="button"><p>Read More</p></button>
+                            <a>
+                            <i title="GitHubLink" class="fa-brands fa-github icon"></i>
+                            </a>
+                            <a>
+                            <i title="Live Link" class="fa-solid fa-link icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" id="project-2">
+                    <div class="project-number project-number-left">02</div>
+                    <div class="project-content project-content-right">
+                        <div class="project-skills">
+                            <img src="https://codehelp-portfolio-website.netlify.app/images/stack/HTML.png" class="skills-icons">
+                            <img src="https://codehelp-portfolio-website.netlify.app/images/stack/CSS.png" class="skills-icons">
+                            <img src="https://codehelp-portfolio-website.netlify.app/images/stack/Javascript.svg" class="skills-icons">
+                            <!-- <img src="https://codehelp-portfolio-website.netlify.app/images/stack/Express.png" class="skills-icons"> -->
+                            <img src="https://codehelp-portfolio-website.netlify.app/images/stack/NextJsCircle.png" class="skills-icons">
+                            <img src="https://codehelp-portfolio-website.netlify.app/images/stack/Tailwind.png" class="skills-icons">
+                            <!-- <img src="https://codehelp-portfolio-website.netlify.app/images/stack/NodeJs.svg" class="skills-icons">
+                            <img src="https://codehelp-portfolio-website.netlify.app/images/stack/MongoDB.svg" class="skills-icons"> -->
+                            <img src="https://codehelp-portfolio-website.netlify.app/images/stack/Redux.svg" class="skills-icons">
+                            <!-- <img src="https://codehelp-portfolio-website.netlify.app/images/stack/Vercel.svg" class="skills-icons"> -->
+                        
+                        
+                        
+                        
+                        </div>
+                        <h2 class="project-heading">AEC Site Vision</h2>
+                        <div class="project-subheading">Developed a Progressive Web Application for the AEC industry with project and site management. </div>
+                        <div class="button-group">
+                            <button class="button"><p>Read More</p></button>
+                            <a href="">
+                            <i title="GitHubLink" class="fa-brands fa-github icon"></i>
+                            </a>
+                            <a href="">
+                            <i title="Live Link" class="fa-solid fa-link icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" id="project-3">
+                    <div class="project-number project-number-right">03</div>
+                    <div class="project-content project-content-left">
+                        <div class="project-skills">
+                            <img src="https://codehelp-portfolio-website.netlify.app/images/stack/HTML.png" class="skills-icons">
+                            <img src="https://codehelp-portfolio-website.netlify.app/images/stack/CSS.png" class="skills-icons">
+                            <img src="https://codehelp-portfolio-website.netlify.app/images/stack/Javascript.svg" class="skills-icons">
+                            <!-- <img src="https://codehelp-portfolio-website.netlify.app/images/stack/Express.png" class="skills-icons"> -->
+                            <img src="https://codehelp-portfolio-website.netlify.app/images/stack/NextJsCircle.png" class="skills-icons">
+                            <img src="https://codehelp-portfolio-website.netlify.app/images/stack/Tailwind.png" class="skills-icons">
+                            <!-- <img src="https://codehelp-portfolio-website.netlify.app/images/stack/NodeJs.svg" class="skills-icons">
+                            <img src="https://codehelp-portfolio-website.netlify.app/images/stack/MongoDB.svg" class="skills-icons"> -->
+                            <!-- <img src="https://codehelp-portfolio-website.netlify.app/images/stack/Redux.svg" class="skills-icons"> -->
+                            <img src="https://codehelp-portfolio-website.netlify.app/images/stack/Vercel.svg" class="skills-icons">
+                        
+                        
+                        
+                        
+                        </div>
+                        <h2 class="project-heading">Pub & Go</h2>
+                        <div class="project-subheading">A cross-platform mobile app that helps users discover nearby bars, events, and offers, 
+while allowing them to book seats at restaurants and place pre-orders seamlessly. </div>
+                        <div class="button-group">
+                            <button class="button"><p>Read More</p></button>
+                            <a href="">
+                            <i title="GitHubLink" class="fa-brands fa-github icon"></i>
+                            </a>
+                            <a href="">
+                            <i title="Live Link" class="fa-solid fa-link icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" id="project-4">
+                    <div class="project-number project-number-left">04</div>
+                    <div class="project-content project-content-right">
+                        <div class="project-skills">
+                            <!-- <img src="https://codehelp-portfolio-website.netlify.app/images/stack/HTML.png" class="skills-icons">
+                            <img src="https://codehelp-portfolio-website.netlify.app/images/stack/CSS.png" class="skills-icons">
+                            <img src="https://codehelp-portfolio-website.netlify.app/images/stack/Javascript.svg" class="skills-icons">
+                            <img src="https://codehelp-portfolio-website.netlify.app/images/stack/Express.png" class="skills-icons"> -->
+                            <img src="https://codehelp-portfolio-website.netlify.app/images/stack/NextJsCircle.png" class="skills-icons">
+                            <img src="https://codehelp-portfolio-website.netlify.app/images/stack/Tailwind.png" class="skills-icons">
+                            <!-- <img src="https://codehelp-portfolio-website.netlify.app/images/stack/NodeJs.svg" class="skills-icons">
+                            <img src="https://codehelp-portfolio-website.netlify.app/images/stack/MongoDB.svg" class="skills-icons">
+                            <img src="https://codehelp-portfolio-website.netlify.app/images/stack/Redux.svg" class="skills-icons"> -->
+                            <img src="https://codehelp-portfolio-website.netlify.app/images/stack/Vercel.svg" class="skills-icons">
+                        
+                        
+                        
+                        
+                        </div>
+                        <h2 class="project-heading">Flash Chat</h2>
+                        <div class="project-subheading">A real-time chat application enabling users to join chat rooms and exchange messages seamlessly.  </div>
+                        <div class="button-group">
+                            <button class="button"><p>Read More</p></button>
+                            <a href="">
+                            <i title="GitHubLink" class="fa-brands fa-github icon"></i>
+                            </a>
+                            <a href="">
+                            <i title="Live Link" class="fa-solid fa-link icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="Skills" class="container skills-container">
+            <div class="skill-faded-text">Skills</div>
 
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "Be Vietnam Pro", sans-serif;
-}
+            <div class="skills-container-left">
+                <h2 class="skill-heading">
+                    <span>M</span>e and
+                    <br/>
+                    MyTech Stack
+                </h2>
 
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 20px;
-}
+                <div class="skill-subheading">
+                    <p>Hi everyone! I'm Abhay Chauhan, a passionate developer who enjoys building interactive, user-friendly, and responsive web applications.</p>
+                    <p>I focus on developing practical solutions using modern web technologies, writing clean and maintainable code, and continuously improving my technical skills through hands-on projects.</p>
+                    <p>I enjoy exploring new technologies, solving problems, and turning ideas into functional applications that deliver a great user experience.</p>
+                </div>
+            </div>
+            <div class="skills-container-right">
+                <img src="https://codehelp-portfolio-website.netlify.app/images/userAsset/blob%20vector.png" alt="" class="blob-style" />
+                <img src="https://codehelp-portfolio-website.netlify.app/images/stack/HTML.png" class="tech-skills" />
+                <img src="https://codehelp-portfolio-website.netlify.app/images/stack/CSS.png" class="tech-skills" />
+                <img src="https://codehelp-portfolio-website.netlify.app/images/stack/React.png" class="tech-skills" />
+                <img src="https://codehelp-portfolio-website.netlify.app/images/stack/Javascript.svg" class="tech-skills" /> 
+                <img src="https://codehelp-portfolio-website.netlify.app/images/stack/Express.png" class="tech-skills" />
+                <img src="https://codehelp-portfolio-website.netlify.app/images/stack/NextJsCircle.png" class="tech-skills" />
+                <img src="https://codehelp-portfolio-website.netlify.app/images/stack/Tailwind.png" class="tech-skills" />
+                <img src="https://codehelp-portfolio-website.netlify.app/images/stack/NodeJs.svg" class="tech-skills" />
+                <img src="https://codehelp-portfolio-website.netlify.app/images/stack/MongoDB.svg" class="tech-skills" />
+                <img src="https://codehelp-portfolio-website.netlify.app/images/stack/Redux.svg" class="tech-skills" />
+                <img src="https://codehelp-portfolio-website.netlify.app/images/stack/Vercel.svg" class="tech-skills" />
+                <img src="https://codehelp-portfolio-website.netlify.app/images/stack/MaterialUI.svg" class="tech-skills" />
+                <img src="https://codehelp-portfolio-website.netlify.app/images/stack/Graphql.svg" class="tech-skills" />
+                <img src="https://codehelp-portfolio-website.netlify.app/images/stack/K8s.svg" class="tech-skills" />
+                <img src="https://codehelp-portfolio-website.netlify.app/images/stack/Docker.svg" class="tech-skills" />
+                <img src="https://codehelp-portfolio-website.netlify.app/images/stack/Bash.svg" class="tech-skills" />
+                <img src="https://codehelp-portfolio-website.netlify.app/images/stack/Git.svg" class="tech-skills" />
+                <img src="https://codehelp-portfolio-website.netlify.app/images/stack/ChartJs.svg" class="tech-skills" />
+                <img src="	https://codehelp-portfolio-website.netlify.app/images/stack/Bootstrap.svg" class="tech-skills" />
+                <img src="https://codehelp-portfolio-website.netlify.app/images/stack/Github.svg" class="tech-skills" />
+            </div>
 
-body {
-    overflow-x: hidden;
-}
 
-img {
-    max-width: 100%;
-}
 
-#wrapper {
-    width: 100%;
-    overflow-x: hidden;
-}
-
-.container {
-    width: 100%;
-    max-width: 1250px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-}
-
-/* ---------- NAV ---------- */
-.nav {
-    height: 100px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 1rem;
-    position: relative;
-    z-index: 50;
-}
-.logoImage {
-    height: 100px;
-    width: auto;
-}
-.logo {
-    display: flex;
-    align-items: center;
-}
-.logo p {
-    font-size: 30px;
-    margin-left: -0.4rem;
-    font-weight: 800;
-    white-space: nowrap;
-}
-.nav-items {
-    display: flex;
-    gap: 2rem;
-}
-.nav-items a {
-    text-decoration: none;
-    color: black;
-    font-size: 25px;
-}
-.nav-items a:hover {
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.8s;
-}
-
-/* hamburger (hidden on desktop) */
-.nav-toggle {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    width: 44px;
-    height: 44px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 6px;
-}
-.nav-toggle span {
-    display: block;
-    width: 26px;
-    height: 3px;
-    background: #1f1f1f;
-    border-radius: 2px;
-    transition: all 0.3s;
-}
-.nav-toggle.open span:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
-}
-.nav-toggle.open span:nth-child(2) {
-    opacity: 0;
-}
-.nav-toggle.open span:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
-}
-
-/* ---------- HERO ---------- */
-.hero-section {
-    display: flex;
-    position: relative;
-    justify-content: space-between;
-    align-items: center;
-    gap: 3rem;
-    margin: 4rem auto 2rem;
-    padding: 0 0 8rem;
-    min-height: 602px;
-    width: 100%;
-}
-.faded-text {
-    font-size: 7em;
-    color: rgb(231, 231, 231);
-    user-select: none;
-    bottom: 0;
-    left: 0;
-    font-weight: bold;
-    position: absolute;
-    white-space: nowrap;
-    z-index: -1;
-}
-.hero-section-left {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    flex: 1 1 55%;
-    min-width: 0;
-}
-.intro-section {
-    font-size: 35px;
-    font-weight: 500;
-}
-.heading-section {
-    font-size: 45px;
-    font-weight: 500;
-    line-height: 1.2;
-}
-.role {
-    color: #4e45d5;
-    font-weight: 800;
-}
-.discription {
-    margin-top: 1rem;
-    width: 80%;
-    font-weight: 500;
-}
-.button {
-    color: white;
-    background-color: rgb(255, 17, 0);
-    font-weight: 800;
-    font-size: 18px;
-    width: 150px;
-    padding: 1rem;
-    text-align: center;
-    position: relative;
-    z-index: 0;
-    border: 2px solid rgb(255, 17, 0);
-    box-shadow: 2px 2px 10px black;
-    margin-top: 20px;
-    cursor: pointer;
-    overflow: hidden;
-}
-.button::before {
-    content: "";
-    background-color: white;
-    transform: scaleX(0);
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    transform-origin: left;
-    z-index: -1;
-    transition: all 1s;
-}
-.button:hover::before {
-    transform: scaleX(1);
-}
-.button:hover p {
-    color: black;
-}
-
-.hero-section-right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 0 0 auto;
-    width: 425px;
-    max-width: 100%;
-    aspect-ratio: 425 / 474;
-    box-shadow: 7px 7px 10px black;
-    animation: zoom 5s linear infinite;
-    background: #fff;
-}
-@keyframes zoom {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-        filter: grayscale(1);
-        box-shadow: none;
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-.profile-img {
-    width: 70%;
-    height: auto;
-}
-
-/* ---------- PROJECTS ---------- */
-.project-section {
-    background-color: rgb(231, 231, 231);
-    margin-top: 4rem;
-    padding: 0 1.5rem;
-}
-.page-header {
-    color: rgb(255, 17, 0);
-    font-size: clamp(2.5rem, 8vw, 90px);
-    text-align: center;
-    padding-top: 30px;
-}
-.project-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 3rem 0;
-    display: flex;
-    flex-direction: column;
-    gap: 120px;
-}
-.project-card {
-    width: 90%;
-    height: 550px;
-    position: relative;
-    box-shadow: 0px 0px 40px #1f1f1f;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-.project-card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-color: #1f1f1f9a;
-    z-index: 0;
-}
-.project-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(45deg, #343d68, #343d68be, #343d687c);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: all 0.4s;
-    z-index: 1;
-}
-.project-card:hover::before {
-    transform: scaleX(1);
-}
-
-#project-1 { background-image: url("./assets/images/finwell.png"); }
-#project-2 { background-image: url("./assets/images/AEC.png"); margin-left: auto; }
-#project-3 { background-image: url("./assets/images/pub&go.png"); }
-#project-4 { background-image: url("./assets/images/flash-chat.png"); margin-left: auto; }
-
-.project-number {
-    position: absolute;
-    font-size: clamp(100px, 14vw, 200px);
-    font-weight: bold;
-    color: white;
-    z-index: 10;
-    opacity: 0;
-    transition: opacity 0.4s;
-    line-height: 1;
-    pointer-events: none;
-}
-.project-number-right {
-    top: -45px;
-    right: -40px;
-}
-.project-number-left {
-    top: -45px;
-    left: -40px;
-}
-.project-card:hover .project-number {
-    opacity: 1;
-}
-
-.project-content {
-    z-index: 5;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 65%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    color: white;
-    padding: 2em;
-    gap: 1em;
-    transition: all 0.4s;
-}
-.project-content-left {
-    left: 5%;
-}
-.project-content-right {
-    right: 5%;
-}
-.project-card:hover .project-content {
-    transform: scale(1.05);
-}
-
-.skills-icons {
-    height: 40px;
-    width: 40px;
-    object-fit: contain;
-}
-.project-skills {
-    width: 100%;
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-.project-heading {
-    font-size: clamp(2rem, 5vw, 50px);
-    font-weight: bold;
-    line-height: 1.1;
-}
-.project-subheading {
-    width: 85%;
-    font-size: 16px;
-    font-style: italic;
-}
-.button-group {
-    display: flex;
-    gap: 0.9rem;
-    align-items: center;
-    flex-wrap: wrap;
-}
-.button-group .button {
-    margin-top: 0;
-}
-.icon {
-    width: 34px;
-    cursor: pointer;
-    color: white;
-    font-size: 35px;
-    transition: all 0.4s;
-}
-.icon:hover {
-    color: rgb(255, 17, 0);
-}
-
-/* ---------- SKILLS ---------- */
-.skills-container {
-    display: flex;
-    position: relative;
-    padding: 5rem 1.5rem;
-    margin: 6rem auto;
-    gap: 30px;
-    align-items: center;
-}
-.skills-container-left {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    gap: 2rem;
-}
-.skills-container-right {
-    display: flex;
-    flex-wrap: wrap;
-    width: 50%;
-    position: relative;
-    gap: 2rem;
-    justify-content: center;
-    align-items: center;
-}
-.skill-faded-text {
-    position: absolute;
-    bottom: -2rem;
-    right: 0;
-    font-weight: bold;
-    font-size: clamp(5rem, 15vw, 15em);
-    line-height: 1;
-    color: rgb(231, 231, 231);
-    user-select: none;
-    z-index: -1;
-    max-width: 100%;
-    overflow: hidden;
-}
-.blob-style {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: -5;
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    transform: translate(-50%, -50%);
-    animation: blobAnimate 3s linear infinite;
-}
-@keyframes blobAnimate {
-    50% {
-        top: 54%;
-        left: 46%;
-    }
-}
-.tech-skills {
-    width: 90px;
-    height: auto;
-    transition: all 0.5s;
-}
-.tech-skills:hover {
-    transform: scale(1.1);
-}
-.skill-heading {
-    font-size: clamp(2rem, 5vw, 50px);
-    color: rgb(255, 17, 0);
-    line-height: 1.1;
-}
-.skill-heading span {
-    font-size: clamp(3.5rem, 9vw, 90px);
-}
-.skill-subheading {
-    margin-top: 1rem;
-    width: 90%;
-}
-.skill-subheading p + p {
-    margin-top: 1rem;
-}
-
-/* ---------- CONTACT ---------- */
-.personal-details-container {
-    width: 100%;
-    background-color: rgba(231, 231, 231, 0.533);
-    padding: 4rem 0;
-}
-.personal-heading {
-    font-size: clamp(2.5rem, 8vw, 5rem);
-    font-weight: bold;
-    color: rgb(255, 17, 0);
-}
-.personal-subheading {
-    font-size: clamp(1.3rem, 4vw, 3rem);
-    font-weight: bold;
-    color: #343d68aa;
-}
-.contact-form {
-    margin: 2rem auto 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    width: 100%;
-    max-width: 700px;
-}
-.info-form {
-    width: 100%;
-    padding: 0.8rem;
-    border: none;
-    box-shadow: 1px 1px 10px black;
-    border-radius: 10px;
-    font-size: 18px;
-    resize: vertical;
-}
-.send-button {
-    color: white;
-    background-color: rgb(255, 17, 0);
-    font-weight: 800;
-    font-size: 22px;
-    width: 250px;
-    max-width: 100%;
-    padding: 1rem;
-    text-align: center;
-    position: relative;
-    z-index: 0;
-    border: 2px solid rgb(255, 17, 0);
-    box-shadow: 2px 2px 10px black;
-    margin-top: 20px;
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    overflow: hidden;
-    transition: all 1s;
-}
-.send-button::before {
-    content: "";
-    background-color: white;
-    transform: scaleX(0);
-    position: absolute;
-    inset: 0;
-    transform-origin: left;
-    z-index: -1;
-    transition: all 1s;
-}
-.send-button:hover::before {
-    transform: scaleX(1);
-}
-.send-button:hover {
-    transform: scale(0.95);
-    color: black;
-}
-.send-button:hover i {
-    color: black;
-}
-
-/* ---------- FOOTER ---------- */
-.footer-section {
-    width: 100%;
-    background-color: #343d68;
-    position: relative;
-    padding: 7rem 0;
-    z-index: 1;
-    overflow: hidden;
-}
-.footer-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    width: 100%;
-}
-.tags a {
-    color: white;
-    text-decoration: none;
-    font-size: 20px;
-    transition: all 1s;
-}
-.tags a:hover {
-    color: rgb(255, 17, 0);
-}
-.spacing {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-.faded-owner-name {
-    font-size: clamp(2rem, 8vw, 5em);
-    color: #535c87;
-    user-select: none;
-    position: absolute;
-    bottom: 0;
-    left: 1rem;
-    z-index: -1;
-    white-space: nowrap;
-}
-
-/* =========================================================
-   LAPTOP / SMALL DESKTOP  (≤ 1300px)
-   ========================================================= */
-@media (max-width: 1300px) {
-    .hero-section-right {
-        width: 380px;
-    }
-    .faded-text {
-        font-size: 6em;
-    }
-}
-
-/* =========================================================
-   TABLET  (≤ 992px)
-   ========================================================= */
-@media (max-width: 992px) {
-    .nav-items a {
-        font-size: 20px;
-    }
-    .nav-items {
-        gap: 1.2rem;
-    }
-    .logo p {
-        font-size: 24px;
-    }
-    .logoImage {
-        height: 80px;
-    }
-
-    .hero-section {
-        gap: 2rem;
-        min-height: 0;
-        padding-bottom: 6rem;
-    }
-    .hero-section-right {
-        width: 300px;
-    }
-    .intro-section { font-size: 28px; }
-    .heading-section { font-size: 34px; }
-    .discription { width: 100%; }
-    .faded-text { font-size: 4.5em; }
-
-    .project-container { gap: 80px; }
-    .project-card { width: 100%; height: 480px; }
-    #project-2, #project-4 { margin-left: 0; }
-    .project-content { width: 85%; }
-    .project-number-right { right: -10px; }
-    .project-number-left { left: -10px; }
-
-    .skills-container {
-        flex-direction: column;
-        padding: 3rem 1.5rem;
-        margin: 4rem auto;
-        gap: 3rem;
-    }
-    .skills-container-left,
-    .skills-container-right {
-        width: 100%;
-    }
-    .skill-subheading { width: 100%; }
-}
-
-/* =========================================================
-   MOBILE  (≤ 768px)
-   ========================================================= */
-@media (max-width: 768px) {
-    .container { padding: 0 1rem; }
-
-    /* nav -> hamburger */
-    .nav {
-        height: 80px;
-        padding-top: 0;
-    }
-    .logoImage { height: 60px; }
-    .logo p { font-size: 20px; }
-    .nav-toggle { display: flex; }
-    .nav-items {
-        display: none;
-        position: absolute;
-        top: 80px;
-        left: 0;
-        right: 0;
-        flex-direction: column;
-        gap: 0;
-        background: #fff;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        border-radius: 0 0 12px 12px;
-        overflow: hidden;
-    }
-    .nav-items.open { display: flex; }
-    .nav-items a {
-        padding: 1rem 1.5rem;
-        font-size: 18px;
-        border-bottom: 1px solid #eee;
-    }
-
-    /* hero stacks: photo on top, text below */
-    .hero-section {
-        flex-direction: column-reverse;
-        align-items: center;
-        text-align: center;
-        margin: 1.5rem auto 0;
-        padding-bottom: 5rem;
-        gap: 2rem;
-    }
-    .hero-section-left {
-        flex: none;
-        width: 100%;
-        align-items: center;
-    }
-    .hero-section-right {
-        width: min(80%, 300px);
-    }
-    .intro-section { font-size: 22px; }
-    .heading-section { font-size: 28px; }
-    .discription { width: 100%; font-size: 15px; margin-top: 0.5rem; }
-    .faded-text { font-size: 2.6em; left: 50%; transform: translateX(-50%); }
-
-    /* projects: stacked cards, content flows normally */
-    .project-section { padding: 0 1rem; margin-top: 2rem; }
-    .project-container { gap: 40px; padding: 2rem 0; }
-    .project-card {
-        height: auto;
-        min-height: 0;
-    }
-    .project-content {
-        position: relative;
-        width: 100%;
-        left: auto;
-        right: auto;
-        top: auto;
-        bottom: auto;
-        padding: 1.5rem 1.2rem;
-        gap: 0.8rem;
-    }
-    .project-card:hover .project-content { transform: none; }
-    .project-subheading { width: 100%; font-size: 14px; }
-    .project-number { display: none; }
-    .project-card::before { display: none; }
-    .skills-icons { height: 32px; width: 32px; }
-    .icon { font-size: 28px; width: 28px; }
-
-    /* skills */
-    .skills-container { padding: 2rem 1rem; margin: 3rem auto; }
-    .skills-container-right { gap: 1.2rem; }
-    .tech-skills { width: 60px; }
-    .skill-faded-text { bottom: -1rem; }
-
-    /* contact */
-    .personal-details-container { padding: 3rem 0; }
-    .info-form { font-size: 16px; }
-    .send-button { width: 100%; font-size: 18px; }
-
-    /* footer */
-    .footer-section { padding: 4rem 0 5rem; }
-    .footer-wrapper {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .tags a { font-size: 18px; }
-}
-
-/* =========================================================
-   SMALL PHONES  (≤ 480px)
-   ========================================================= */
-@media (max-width: 480px) {
-    .logo p { font-size: 17px; }
-    .heading-section { font-size: 24px; }
-    .tech-skills { width: 52px; }
-    .skills-container-right { gap: 1rem; }
-    .project-heading { font-size: 1.8rem; }
-}
+        </div>
+        <div id="Contact-me" class="container personal-details-container">
+            <div class="container">
+                <h1 class="personal-heading">Contact Us</h1>
+                <h3 class="personal-subheading">Questions, Thoughts, Or Just Want To Say Hello?</h3>
+                <form class="contact-form">
+               
+                    <label for="name"></label>   
+                    <input type="text" placeholder="Enter your name" name="" id="name" class="info-form">
+                    <label for="mail"></label>
+                    <input type="email" placeholder="Enter your email address" name="" id="mail" class="info-form">
+                    <label for="sub"></label>
+                    <input type="text" placeholder="Enter yout subject" name="" id="sub" class="info-form">
+                    <label for="addRess"></label>
+                    <textarea name="address" id="addRess" cols="30" rows="10"  class="info-form" placeholder="Enter Your Message"></textarea>
+                    <div class="send-button" >
+                        <p>Send Message</p>
+                        <i class="submit-icon fa-solid fa-paper-plane"></i>
+                    </div>
+                </form>
+                
+                
+            </div>
+        </div>
+        <footer class="container footer-section">
+            <div class="footer-wrapper">
+                <div class="tags spacing">
+                    <a href="#Projects">Projects</a>
+                    <a href="#Skills">Skills</a>
+                    <a href="#Contact-me">Contact Me</a>
+    
+                </div>
+                <div class="sharing-platform spacing">
+                    <i class="fa-brands fa-linkedin icon"></i>
+                    <i class="fa-brands fa-github icon"></i>
+                    <i class="fa-brands fa-twitter icon"></i>
+                    <i class="fa-brands fa-instagram icon"></i>
+                    <i class="fa-regular fa-envelope icon"></i>
+                </div>
+            </div>
+            <div class="faded-owner-name">
+                Abhay Chauhan
+            </div>
+        </footer>
+        
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://kit.fontawesome.com/58a810656e.js" crossorigin="anonymous"></script>
+    <script>
+        var tyeData = new Typed(".role",{
+            strings: [
+                "Full Stack Developer",
+                "Web Developer",
+                "UI-UX Designer",
+                "Backend Developer",
+                "Coder",
+        ],
+            loop: true,
+            typeSpeed: 100,
+            backSpeed: 80,
+            backDelay: 1000,
+        });
+    </script>
+</body>
+</html>
