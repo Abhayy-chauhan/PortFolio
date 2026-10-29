@@ -722,7 +722,7 @@
         width: min(80%, 300px);
     }
     .intro-section { font-size: 22px; }
-    .heading-section { font-size: 28px; }
+    .heading-section { font-size: 20px; }
     .discription { width: 100%; font-size: 15px; margin-top: 0.5rem; }
     .faded-text { font-size: 2.6em; left: 50%; transform: translateX(-50%); }
  
